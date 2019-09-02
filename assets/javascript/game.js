@@ -7,7 +7,7 @@ let currentWord = wordArr[Math.floor(Math.random() * wordArr.length)];
 let letterArr = currentWord.split("");
 console.log(letterArr);
 let guessedLetter = "";
-let guessedLetters = "";
+let guessedLetters = [];
 let correctGuessedLetter = [];
 let wins = 0;
 let winsDisplay = document.getElementById("wins")
@@ -56,18 +56,32 @@ for (let i = 0; i < currentWord.length; i++) {
 document.onkeyup = function (event) {
     let userGuess = event.key;
     let guessedLetter = userGuess;
-
-    if (guessedLetters.includes(userGuess)) {
-        // the line below guessedLetters holds each of the user's guesses
-        guessedLetters = guessedLetters;
-        displayLetter.textContent = guessedLetters;
+    
+    if (guessedLetters.indexOf(guessedLetter) >= 0) {
+        // this makes sure the user can't guess the same letter more than once
         alert("You've already guessed '" + userGuess + "'. Try a different letter.")
     }
     else {
-        guessedLetters = guessedLetters + userGuess;
+        // This logic appends every guess to Letters Already Guessed
+        guessedLetters.push(guessedLetter);
+        console.log(guessedLetters);
+        console.log(typeof(guessedLetters));
         displayLetter.textContent = guessedLetters;
         guessLeft--;
     }
+
+    // if (guessedLetters.includes(userGuess)) {
+    //     // the line below guessedLetters holds each of the user's guesses
+    //     guessedLetters = guessedLetters;
+    //     displayLetter.textContent = guessedLetters;
+    //     alert("You've already guessed '" + userGuess + "'. Try a different letter.")
+    // }
+    // else {
+    //     guessedLetters = guessedLetters + userGuess;
+        
+    //     displayLetter.textContent = guessedLetters;
+    //     guessLeft--;
+    // }
 
     
     // the line below displays each of the users guesses
