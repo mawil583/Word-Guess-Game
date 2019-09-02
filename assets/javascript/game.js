@@ -1,5 +1,5 @@
 // Definitions:
-let wordArr = ["proton", "velocity", "mass", "energy", "atom", "particle", "momentum", "science"];
+let wordArr = ["proton", "velocity", "mass", "energy", "atom", "compound", "momentum", "science"];
 let currentWord = wordArr[Math.floor(Math.random() * wordArr.length)];
 let lettersOfWordArr = currentWord.split("");
 let alphabetStr = "qwertyuiopasdfghjklzxcvbnm";
@@ -7,6 +7,8 @@ let alphabetArr = alphabetStr.split("");
 let displayLettersGuessed = document.getElementById("already-guessed");
 let winsDisplay = document.getElementById("wins")
 let displayWord = document.getElementById("current-word");
+let imageTag = document.createElement("img");
+
 let underscores = "";
 let underscoresArr = [];
 let guessedLetter = "";
@@ -55,7 +57,7 @@ document.onkeyup = function (event) {
             document.getElementById("remaining-guesses").innerHTML = guessLeft;
             wins++;
             guessLeft--;
-            winsDisplay;        
+            winsDisplay;
             alert('GAME OVER! The word was "' + currentWord + '."');
             reset();
         }
@@ -64,6 +66,32 @@ document.onkeyup = function (event) {
     if (underscoresArr.includes("_") === false) {
         wins++;
         winsDisplay.textContent = "Wins: " + wins;
+        if (currentWord === wordArr[0]) {
+            imageTag.setAttribute("src", "./assets/images/proton.png")
+            document.getElementById("imageDiv").appendChild(imageTag);
+        }
+        else if (currentWord === wordArr[1]) {
+            imageTag.setAttribute("src", "./assets/images/velocity.jpg")
+            document.getElementById("imageDiv").appendChild(imageTag);
+        }else if (currentWord === wordArr[2]) {
+            imageTag.setAttribute("src", "./assets/images/mass.jpg")
+            document.getElementById("imageDiv").appendChild(imageTag);
+        }else if (currentWord === wordArr[3]) {
+            imageTag.setAttribute("src", "./assets/images/energy.png")
+            document.getElementById("imageDiv").appendChild(imageTag);
+        }else if (currentWord === wordArr[4]) {
+            imageTag.setAttribute("src", "./assets/images/atom.png")
+            document.getElementById("imageDiv").appendChild(imageTag);
+        }else if (currentWord === wordArr[5]) {
+            imageTag.setAttribute("src", "./assets/images/compound.png")
+            document.getElementById("imageDiv").appendChild(imageTag);
+        }else if (currentWord === wordArr[6]) {
+            imageTag.setAttribute("src", "./assets/images/momentum.png")
+            document.getElementById("imageDiv").appendChild(imageTag);
+        }else if (currentWord === wordArr[7]) {
+            imageTag.setAttribute("src", "./assets/images/Science.png")
+            document.getElementById("imageDiv").appendChild(imageTag);
+        }
         setTimeout(function () {
             alert("You Won!");
         })
