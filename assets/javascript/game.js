@@ -15,14 +15,28 @@ winsDisplay.textContent = "Wins: " + wins;
 // document.getElementById("wins").textContent = "Wins: " + wins;
 let guessLeft = 13;
 
-function reset () {
+
+function reset() {
     guessLeft = 13;
+    displayLetter.textContent = "";
+    underscores = "";
+    displayWord.textContent = "";
     currentWord = wordArr[Math.floor(Math.random() * wordArr.length)];
+    console.log(currentWord)
     letterArr = currentWord.split("");
-    document.getElementById("remaining-guesses").innerHTML = guessLeft; 
+    for (let i = 0; i < currentWord.length; i++) {
+        underscores = underscores + "_";
+        console.log(underscores)
+        underscoresArr = underscores.split("");
+        console.log(underscoresArr);
+        displayWord.textContent = underscores;
+    }
+
+    letterArr = currentWord.split("");
+    document.getElementById("remaining-guesses").innerHTML = guessLeft;
     guessedLetters = "";
 }
-reset ();
+
 // Math.floor() rounds to the nearest integer
 // Math.random() chooses a random number between 0 and 1. If I want to,
 // specify a range, then I multiply Math.random() by a range I want to
@@ -38,7 +52,7 @@ for (let i = 0; i < currentWord.length; i++) {
 }
 
 
-// This function handles key events and counts guesses (but only if the user)
+// This function handles key events and counts guesses in the "Letters already guessed"
 document.onkeyup = function (event) {
     let userGuess = event.key;
     let guessedLetter = userGuess;
@@ -55,32 +69,28 @@ document.onkeyup = function (event) {
         guessLeft--;
     }
 
-
+    
     // the line below displays each of the users guesses
     displayLetter.textContent = guessedLetters;
     
-    console.log("guessedLetter: "  + guessedLetter);
+    console.log("guessedLetter: " + guessedLetter);
     console.log("guessedLetters" + " " + guessedLetters);
 
-    document.getElementById("remaining-guesses").innerHTML = guessLeft; 
-
-    if (guessLeft > 0){
+    // below updates the guesses left to the browser
+    document.getElementById("remaining-guesses").innerHTML = guessLeft;
     
+
+    if (guessLeft > 0) {
+        
         for (let i = 0; i < letterArr.length; i++) {
-           
+            
             if (guessedLetter === letterArr[i]) {
                 console.log(guessedLetter);
                 underscoresArr.splice(i, 1, guessedLetter);
-                
+
                 console.log(underscoresArr);
                 displayWord.textContent = underscoresArr.join(" ");
-                
             }
-            if (underscoresArr.includes("_") === false) {
-                wins++;
-                return winsDisplay.textContent = "Wins: " + wins;
-            }
-
         }
     } else {
 
@@ -89,18 +99,36 @@ document.onkeyup = function (event) {
         winsDisplay;
         alert("GAME OVER!");
         reset();
-    }    
+    }
+    if (underscoresArr.includes("_") === false) {
+        wins++;
+        winsDisplay.textContent = "Wins: " + wins;
+        setTimeout(function () {
+            alert("You Won!");
+        })
+        reset();
+    }
 }
 // function alreadyGuessed(guess) {
 //     letterGuess.textContent 
 // }
 // for (let i = 0; i < word.length; i++) {};
 
-/* Take out displayWord.textContent = underscores; from line 26 and make an html div with a 
- different ID (id="underscores"), and do a getelementbyid("underscores"), like i did on line 41 
+/* Take out displayWord.textContent = underscores; from line 26 and make an html div with a
+different ID (id="underscores"), and do a getelementbyid("underscores"), like i did on line 41
  */
 
+// var x = "3" + 1;
+// console.log(x);
+// console.log(typeof(x));
+// above code outputs: 31
+// type is string
 
+// var x = "3" - 1;
+// console.log(x);
+// console.log(typeof(x));
+// above code outputs: 2
+// type is number
 
 
 
