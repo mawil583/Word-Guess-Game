@@ -1,5 +1,5 @@
 // Definitions:
-let wordArr = ["skateboard", "airplane", "yacht", "computer", "travel", "fun", "chairs"];
+let wordArr = ["skateboard", "airplane", "yacht", "computer", "travel", "fun", "chair", "science"];
 let currentWord = wordArr[Math.floor(Math.random() * wordArr.length)];
 let lettersOfWordArr = currentWord.split("");
 let alphabetStr = "qwertyuiopasdfghjklzxcvbnm";
