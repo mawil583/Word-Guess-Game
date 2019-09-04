@@ -111,8 +111,8 @@ document.onkeyup = function (event) {
                 alert('GAME OVER! The word was "' + currentWord + '."');
                 reset();
             }
-            // if the user guessed incorrectly, then append guess to 
-            //     list of guessed letters and update browser
+            // if the user guessed incorrectly (correctly guess logic is above), 
+            //    then append guess to list of guessed letters and update browser
             else if (underscoresArr.includes("_")) {
                 guessedLetters.push(guessedLetter);
                 displayLettersGuessed.textContent = guessedLetters;
