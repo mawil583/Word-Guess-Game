@@ -35,6 +35,11 @@ table {
 }
 /* ------------------- End Reset ------------------- */
 
+span {
+    font-family: 'Monoton', cursive;
+    color: white;
+    font-size: 1em;
+}
 
 .header {
     display: flex;
