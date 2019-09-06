@@ -47,7 +47,7 @@ span {
 .header {
     display: flex;
     justify-content: center;
-    background-color: rgb(60, 60, 153)
+    background-color: rgb(85, 36, 206);
 }
 
 h1 {
@@ -59,7 +59,7 @@ h1 {
 h3 {
     font-size: 2.5em;
     line-height: 1em;
-    color: white;
+    color:#cbefe5;
 }
 
 img {
@@ -69,7 +69,7 @@ img {
 
 .title {
     font-family: 'Lexend Zetta', sans-serif;
-    color: white;
+    color:#cbefe5;
     font-size: 2.0em;
     line-height: 2em;
     margin-bottom: 1em;

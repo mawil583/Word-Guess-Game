@@ -1,6 +1,10 @@
 // Definitions:
 let wordArr = ["proton", "velocity", "mass", "energy", "atom", "compound", "momentum", "science"];
 let currentWord = wordArr[Math.floor(Math.random() * wordArr.length)];
+let numbers = [0,1,2];
+let randomNumber = (Math.random() * numbers.length);
+console.log(randomNumber)
+
 console.log(currentWord);
 let lettersOfWordArr = currentWord.split("");
 let displayLettersGuessed = document.getElementById("already-guessed");
